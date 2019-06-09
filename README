@@ -1,0 +1,44 @@
+My PCRF
+  by: Hin Yun Lee
+
+  A PCRF I wrote at work to practice my Erlang skills and to learn more about the PCRF, PCEF and Diameter protocol used in the network system I was working on. I was given permission to release this on the internet with confidential information removed.
+
+Requirements
+  erlang
+  mariadb
+  mysql-connector-odbc
+
+Installation
+  Install database tables, procedures and events
+
+  Configure ./src/config.hrl
+
+  Run:
+    $ make
+
+  Append to /etc/odbc.ini:
+    [my-pcrf]
+    Description = My PCRF
+    Driver = MySQL
+    Database = pcrf
+    Server = localhost
+    User = root
+    Password =
+    Port =
+
+Instructions
+  Start node:
+    $ ./bin/my-pcrf start
+
+  Stop node:
+    $ ./bin/my-pcrf stop
+
+  Show status:
+    $ ./bin/my-pcrf status
+
+  Restart node:
+    $ ./bin/my-pcrf restart
+
+  Run as app:
+    $ cd bin
+    $ ./run.sh

@@ -1,0 +1,678 @@
+; 3GPP TS 29.212 version 10
+@id 16777238
+@inherits diameter_gen_base_rfc3588
+@prefix diameter_3gpp_gx
+@vendor 10415 3GPP
+
+@avp_vendor_id 5535
+  3GPP2-BSID
+
+@avp_vendor_id 13019
+  Logical-Access-ID
+  Physical-Access-ID
+
+@avp_types
+  ; Gx specific
+  Access-Network-Charging-Identifier-Gx 1022 Grouped MV
+  Allocation-Retention-Priority 1034 Grouped V
+  AN-GW-Address 1050 Address V
+  APN-Aggregate-Max-Bitrate-DL 1040 Unsigned32 V
+  APN-Aggregate-Max-Bitrate-UL 1041 Unsigned32 V
+  Bearer-Control-Mode 1023 Enumerated MV
+  Bearer-Identifier 1020 OctetString MV
+  Bearer-Operation 1021 Enumerated MV
+  Bearer-Usage 1000 Enumerated MV
+  Charging-Rule-Install 1001 Grouped MV
+  Charging-Rule-Remove 1002 Grouped MV
+  Charging-Rule-Definition 1003 Grouped MV
+  Charging-Rule-Base-Name 1004 UTF8String MV
+  Charging-Rule-Name 1005 OctetString MV
+  Charging-Rule-Report 1018 Grouped MV
+  Charging-Correlation-Indicator 1073 Enumerated V
+  CoA-IP-Address 1035 Address V
+  CoA-Information 1039 Grouped V
+  CSG-Information-Reporting 1071 Enumerated V
+  Default-EPS-Bearer-QoS 1049 Grouped V
+  Event-Report-Indication 1033 Grouped V
+  Event-Trigger 1006 Enumerated MV
+  Flow-Direction 1080 Enumerated V
+  Flow-Information 1058 Grouped V
+  Flow-Label 1057 OctetString V
+  IP-CAN-Type 1027 Enumerated MV
+  Guaranteed-Bitrate-DL 1025 Unsigned32 MV
+  Guaranteed-Bitrate-UL 1026 Unsigned32 MV
+  Metering-Method 1007 Enumerated MV
+  Monitoring-Key 1066 OctetString V
+  Network-Request-Support 1024 Enumerated MV
+  Offline 1008 Enumerated MV
+  Online 1009 Enumerated MV
+  Packet-Filter-Content 1059 IPFilterRule V
+  Packet-Filter-Identifier 1060 OctetString V
+  Packet-Filter-Information 1061 Grouped V
+  Packet-Filter-Operation 1062 Enumerated V
+  Packet-Filter-Usage 1072 Enumerated V
+  PDN-Connection-ID 1065 OctetString V
+  Precedence 1010 Unsigned32 MV
+  Pre-emption-Capability 1047 Enumerated V
+  Pre-emption-Vulnerability 1048 Enumerated V
+  Priority-Level 1046 Unsigned32 V
+  Reporting-Level 1011 Enumerated MV
+  Routing-Filter 1078 Grouped V
+  Routing-IP-Address 1079 Address V
+  Routing-Rule-Definition 1076 Grouped V
+  Routing-Rule-Identifier 1077 OctetString V
+  Routing-Rule-Install 1081 Grouped V
+  Routing-Rule-Remove 1075 Grouped V
+  PCC-Rule-Status 1019 Enumerated MV
+  Session-Release-Cause 1045 Enumerated MV
+  QoS-Class-Identifier 1028 Enumerated MV
+  QoS-Information 1016 Grouped MV
+  QoS-Negotiation 1029 Enumerated MV
+  QoS-Upgrade 1030 Enumerated MV
+  Resource-Allocation-Notification 1063 Enumerated V
+  Rule-Failure-Code 1031 Enumerated MV
+  Security-Parameter-Index 1056 OctetString V
+  TFT-Filter 1012 IPFilterRule MV
+  TFT-Packet-Filter-Information 1013 Grouped MV
+  ToS-Traffic-Class 1014 OctetString MV
+  Tunnel-Header-Filter 1036 IPFilterRule V
+  Tunnel-Header-Length 1037 Unsigned32 V
+  Tunnel-Information 1038 Grouped V
+  RAT-Type 1032 Enumerated V
+  Revalidation-Time 1042 Time MV
+  Rule-Activation-Time 1043 Time MV
+  Usage-Monitoring-Information 1067 Grouped V
+  Rule-Deactivation-Time 1044 Time MV
+  Usage-Monitoring-Level 1068 Enumerated V
+  Usage-Monitoring-Report 1069 Enumerated V
+  Usage-Monitoring-Support 1070 Enumerated V
+
+  ; Gx re-used
+  3GPP-RAT-Type 21 OctetString V ; 3GPP TS 29.061
+  3GPP-SGSN-Address 6 OctetString V ; 3GPP TS 29.061
+  3GPP-SGSN-IPv6-Address 15 OctetString V ; 3GPP TS 29.061
+  3GPP-SGSN-MCC-MNC 18 UTF8String V ; 3GPP TS 29.061
+  3GPP-User-Location-Info 22 OctetString V ; 3GPP TS 29.061
+  3GPP2-BSID 9010 UTF8String MV ; 3GPP2 X.S0057-0
+  Access-Network-Charging-Address 501 Address MV ; 3GPP TS 29.214
+  Access-Network-Charging-Identifier-Value 503 OctetString MV ; 3GPP TS 29.214
+  AF-Charging-Identifier 505 OctetString MV ; 3GPP TS 29.214
+  Application-Service-Provider-Identity 532 UTF8String V ; 3GPP TS 29.214
+  Called-Station-Id 30 UTF8String M ; IETF RFC 4005
+  CC-Request-Number 415 Unsigned32 M ; IETF RFC 4006
+  CC-Request-Type 416 Enumerated M ; IETF RFC 4006
+  Charging-Information 618 Grouped MV ; 3GPP TS 29.229
+  User-CSG-Information 2319 Grouped MV ; 3GPP TS 32.299
+  Final-Unit-Indication 430 Grouped M ; IETF RFC 4006
+  Flow-Description 507 IPFilterRule MV; 3GPP TS 29.214
+  Flows 510 Grouped MV ; 3GPP TS 29.214
+  Flow-Status 511 Enumerated MV ; 3GPP TS 29.214
+  Framed-IP-Address 8 OctetString M ; IETF RFC 4005
+  Framed-IPv6-Prefix 97 OctetString M ; IETF RFC 4005
+  Granted-Service-Unit 431 Grouped M ; IETF RFC 4006
+  Logical-Access-ID 302 OctetString V ; ETSI TS 283 034
+  Max-Requested-Bandwidth-UL 516 Unsigned32 MV ; 3GPP TS 29.214
+  Max-Requested-Bandwidth-DL 515 Unsigned32 MV ; 3GPP TS 29.214
+  Physical-Access-ID 313 UTF8String V ; ETSI TS 283 034
+  RAI 909 UTF8String MV; 3GPP TS 29.061
+  Rating-Group 432 Unsigned32 M ; IETF RFC 4006
+  Service-Identifier 439 Unsigned32 M ; IETF RFC 4006
+  Sponsor-Identity 531 UTF8String V ; 3GPP TS 29.214
+  Subscription-Id 443 Grouped M ; IETF RFC 4006
+  Supported-Features 628 Grouped V ; 3GPP TS 29.229
+  Used-Service-Unit 446 Grouped M ; IETF RFC 4006
+  Trace-Data 1458 Grouped MV ; 3GPP TS 29.272
+  Trace-Reference 1459 OctetString MV ; 3GPP TS 29.272
+  User-Equipment-Info 458 Grouped - ; IETF RFC 4006
+  3GPP-MS-TimeZone 23 OctetString V ; 3GPP TS 29.061
+  AF-Signalling-Protocol 529 Enumerated V ; 3GPP TS 29.214
+
+  ; IETF RFC 4006
+  CC-Input-Octets 412 Unsigned64 M
+  CC-Money 413 Grouped M
+  CC-Output-Octets 414 Unsigned64 M
+  CC-Service-Specific-Units 417 Unsigned64 M
+  CC-Time 420 Unsigned32 M
+  CC-Total-Octets 421 Unsigned64 M
+  Final-Unit-Action 449 Enumerated M
+  Redirect-Server 434 Grouped M
+  Restriction-Filter-Rule 438 IPFilterRule M
+  Subscription-Id-Data 444 UTF8String M
+  Subscription-Id-Type 450 Enumerated M
+  Tariff-Time-Change 451 Time M
+
+  ; IETF RFC 4005
+  Filter-Id 11 UTF8String M
+
+@grouped
+  ; Gx specific
+  Charging-Rule-Install ::= < AVP Header: 1001 >
+                           *[ Charging-Rule-Definition ]
+                           *[ Charging-Rule-Name ]
+                           *[ Charging-Rule-Base-Name ]
+                            [ Bearer-Identifier ]
+                            [ Rule-Activation-Time ]
+                            [ Rule-Deactivation-Time ]
+                            [ Resource-Allocation-Notification ]
+                            [ Charging-Correlation-Indicator ]
+                           *[ AVP ]
+
+  Charging-Rule-Remove ::= < AVP Header: 1002 >
+                          *[ Charging-Rule-Name ]
+                          *[ Charging-Rule-Base-Name ]
+                          *[ AVP ]
+
+  Charging-Rule-Definition ::= < AVP Header: 1003 >
+                               { Charging-Rule-Name }
+                               [ Service-Identifier ]
+                               [ Rating-Group ]
+                              *[ Flow-Information ]
+                               [ Flow-Status ]
+                               [ QoS-Information ]
+                               [ Reporting-Level ]
+                               [ Online ]
+                               [ Offline ]
+                               [ Metering-Method ]
+                               [ Precedence ]
+                               [ AF-Charging-Identifier ]
+                              *[ Flows ]
+                               [ Monitoring-Key]
+                               [ AF-Signalling-Protocol ] 
+                               [ Sponsor-Identity ]
+                               [ Application-Service-Provider-Identity ]
+                              *[ AVP ]
+
+  TFT-Packet-Filter-Information ::= < AVP Header: 1013 >
+                                    [ Precedence ]
+                                    [ TFT-Filter ]
+                                    [ ToS-Traffic-Class ]
+                                    [ Security-Parameter-Index ]
+                                    [ Flow-Label ]
+                                    [ Flow-Direction ]
+                                   *[ AVP ]
+
+  QoS-Information ::= < AVP Header: 1016 >
+                      [ QoS-Class-Identifier ]
+                      [ Max-Requested-Bandwidth-UL ]
+                      [ Max-Requested-Bandwidth-DL ]
+                      [ Guaranteed-Bitrate-UL ]
+                      [ Guaranteed-Bitrate-DL ]
+                      [ Bearer-Identifier ]
+                      [ Allocation-Retention-Priority ]
+                      [ APN-Aggregate-Max-Bitrate-UL ]
+                      [ APN-Aggregate-Max-Bitrate-DL ]
+                     *[ AVP ]
+
+  Charging-Rule-Report ::= < AVP Header: 1018 >
+                          *[ Charging-Rule-Name ]
+                          *[ Charging-Rule-Base-Name ]
+                           [ Bearer-Identifier ]
+                           [ PCC-Rule-Status ]
+                           [ Rule-Failure-Code ]
+                           [ Final-Unit-Indication ]
+                          *[ AVP ]
+
+  Access-Network-Charging-Identifier-Gx ::= < AVP Header: 1022 >
+                                            { Access-Network-Charging-Identifier-Value }
+                                           *[ Charging-Rule-Base-Name ]
+                                           *[ Charging-Rule-Name ]
+
+  Event-Report-Indication ::= < AVP Header: 1033 >
+                             *[ Event-Trigger ]
+                              [ User-CSG-Information ]
+                              [ RAT-Type ]
+                              [ QoS-Information ]
+                              [ RAI ]
+                              [ 3GPP-User-Location-Info ]
+                              [ Trace-Data ]
+                              [ Trace-Reference ]
+                              [ 3GPP2-BSID ]
+                              [ 3GPP-MS-TimeZone ]
+                              [ 3GPP-SGSN-Address ]
+                              [ 3GPP-SGSN-IPv6-Address ]
+                              [ Routing-IP-Address ]
+                             *[ AVP ]
+
+  Allocation-Retention-Priority ::= < AVP Header: 1034 >
+                { Priority-Level }
+                [ Pre-emption-Capability ]
+                [ Pre-emption-Vulnerability ]
+
+  Tunnel-Information ::= < AVP Header: 1038 >
+                         [ Tunnel-Header-Length ]
+                      2*2[ Tunnel-Header-Filter ]
+                        *[ AVP ]
+
+  CoA-Information ::= < AVP Header: 1039>
+                      { Tunnel-Information }
+                      { CoA-IP-Address }
+                     *[ AVP ]
+
+  Default-EPS-Bearer-QoS::= < AVP Header: 1049 >
+                            [ QoS-Class-Identifier ]
+                            [ Allocation-Retention-Priority]
+                           *[ AVP ]
+
+  Flow-Information ::= < AVP Header: 1058 >
+                       [ Flow-Description ]
+                       [ Packet-Filter-Identifier ]
+                       [ Packet-Filter-Usage ]
+                       [ ToS-Traffic-Class ]
+                       [ Security-Parameter-Index ]
+                       [ Flow-Label ]
+                       [ Flow-Direction ]
+                      *[ AVP ]
+
+  Packet-Filter-Information ::= < AVP Header: 1061 >
+                                [ Packet-Filter-Identifier ]
+                                [ Precedence ]
+                                [ Packet-Filter-Content ]
+                                [ ToS-Traffic-Class ]
+                                [ Security-Parameter-Index ]
+                                [ Flow-Label ]
+                                [ Flow-Direction ]
+                               *[ AVP ]
+
+  Usage-Monitoring-Information::= < AVP Header: 1067 >
+                                  [ Monitoring-Key ]
+                                  [ Granted-Service-Unit ]
+                                  [ Used-Service-Unit ]
+                                  [ Usage-Monitoring-Level ]
+                                  [ Usage-Monitoring-Report ]
+                                  [ Usage-Monitoring-Support ]
+                                 *[ AVP ]
+
+  Routing-Rule-Install ::= < AVP Header: 1081 >
+                          *[ Routing-Rule-Definition ]
+                          *[ AVP ]
+
+  Routing-Rule-Remove ::= < AVP Header: 1075 >
+                         *[ Routing-Rule-Identifier ]
+                         *[ AVP ]
+
+  Routing-Rule-Definition ::= < AVP Header: 1076 >
+                              { Routing-Rule-Identifier }
+                             *[ Routing-Filter ]
+                              [ Precedence ]
+                              [ Routing-IP-Address ]
+                             *[ AVP ]
+
+  Routing-Filter ::= < AVP Header: 1078 >
+                     { Flow-Description }
+                     { Flow-Direction }
+                     [ ToS-Traffic-Class ]
+                     [ Security-Parameter-Index ]
+                     [ Flow-Label ]
+                    *[ AVP ]
+
+  ; Gx re-used
+  Final-Unit-Indication ::= < AVP Header: 430 >
+                            { Final-Unit-Action }
+                           *[ Restriction-Filter-Rule ]
+                           *[ Filter-Id ]
+                            [ Redirect-Server ]
+
+  Granted-Service-Unit ::= < AVP Header: 431 >
+                           [ Tariff-Time-Change ]
+                           [ CC-Time ]
+                           [ CC-Money ]
+                           [ CC-Total-Octets ]
+                           [ CC-Input-Octets ]
+                           [ CC-Output-Octets ]
+                           [ CC-Service-Specific-Units ]
+                          *[ AVP ]
+
+  Subscription-Id ::= < AVP Header: 443 >
+                      { Subscription-Id-Type }
+                      { Subscription-Id-Data }
+
+@messages
+  CC-Request ::= < Diameter Header: 272, REQ, PXY >
+                 < Session-Id >
+                 { Auth-Application-Id }
+                 { Origin-Host }
+                 { Origin-Realm }
+                 { Destination-Realm }
+                 { CC-Request-Type }
+                 { CC-Request-Number }
+                 [ Destination-Host ]
+                 [ Origin-State-Id ]
+                *[ Subscription-Id ]
+                *[ Supported-Features ]
+                 [ Network-Request-Support ]
+                *[ Packet-Filter-Information ]
+                 [ Packet-Filter-Operation ]
+                 [ Bearer-Identifier ]
+                 [ Bearer-Operation ]
+                 [ Framed-IP-Address ]
+                 [ Framed-IPv6-Prefix ]
+                 [ IP-CAN-Type ]
+                 [ 3GPP-RAT-Type ]
+                 [ RAT-Type ]
+                 [ Termination-Cause ]
+                 [ User-Equipment-Info ]
+                 [ QoS-Information ] 
+                 [ QoS-Negotiation ]
+                 [ QoS-Upgrade ]
+                 [ Default-EPS-Bearer-QoS ]               
+              0*2[ AN-GW-Address ]
+                 [ 3GPP-SGSN-MCC-MNC ]
+                 [ 3GPP-SGSN-Address ]
+                 [ 3GPP-SGSN-IPv6-Address ]
+                 [ RAI ]
+                 [ 3GPP-User-Location-Info]
+                 [ 3GPP-MS-TimeZone ]
+                 [ Called-Station-Id ]
+                 [ PDN-Connection-ID ]
+                 [ Bearer-Usage ]
+                 [ Online ]
+                 [ Offline ]
+                *[ TFT-Packet-Filter-Information ]
+                *[ Charging-Rule-Report]
+                *[ Event-Trigger]
+                 [ Event-Report-Indication]
+                 [ Access-Network-Charging-Address ]
+                *[ Access-Network-Charging-Identifier-Gx ]
+                *[ CoA-Information ]
+                *[ Usage-Monitoring-Information ]
+                 [ Routing-Rule-Install ]
+                 [ Routing-Rule-Remove ]
+                 [ Logical-Access-ID ]
+                 [ Physical-Access-ID ]
+                *[ Proxy-Info ]
+                *[ Route-Record ]
+                *[ AVP ]
+
+  CC-Answer ::= < Diameter Header: 272, PXY >
+                < Session-Id >
+                { Auth-Application-Id }
+                { Origin-Host }
+                { Origin-Realm }
+                [ Result-Code ]
+                [ Experimental-Result ]
+                { CC-Request-Type }
+                { CC-Request-Number }
+               *[ Supported-Features ]
+                [ Bearer-Control-Mode ]
+               *[ Event-Trigger ]
+                [ Event-Report-Indication ]
+                [ Origin-State-Id ]
+               *[ Redirect-Host ]
+                [ Redirect-Host-Usage ]
+                [ Redirect-Max-Cache-Time ]
+               *[ Charging-Rule-Remove ]
+               *[ Charging-Rule-Install ]
+                [ Charging-Information ]
+                [ Online ]
+                [ Offline ]
+               *[ QoS-Information ]
+                [ Revalidation-Time ]
+                [ Default-EPS-Bearer-QoS ]
+                [ Bearer-Usage ]
+               *[ Usage-Monitoring-Information ] 
+               *[ CSG-Information-Reporting ]
+                [ User-CSG-Information ]
+                [ Error-Message ]
+                [ Error-Reporting-Host ]
+               *[ Failed-AVP ]
+               *[ Proxy-Info ]
+               *[ Route-Record ]
+               *[ AVP ]
+
+  RA-Request ::= < Diameter Header: 258, REQ, PXY >
+                 < Session-Id >
+                 { Auth-Application-Id }
+                 { Origin-Host }
+                 { Origin-Realm }
+                 { Destination-Realm }
+                 { Destination-Host }
+                 { Re-Auth-Request-Type }
+                 [ Session-Release-Cause ]
+                 [ Origin-State-Id ]
+                *[ Event-Trigger ]
+                 [ Event-Report-Indication ]
+                *[ Charging-Rule-Remove ]
+                *[ Charging-Rule-Install ]
+                 [ Default-EPS-Bearer-QoS ]
+                *[ QoS-Information ]
+                 [ Revalidation-Time ]
+                *[ Usage-Monitoring-Information ]
+                *[ Proxy-Info ]
+                *[ Route-Record ]
+                *[ AVP]
+
+  RA-Answer ::= < Diameter Header: 258, PXY >
+                < Session-Id >
+                { Origin-Host }
+                { Origin-Realm }
+                [ Result-Code ]
+                [ Experimental-Result ]
+                [ Origin-State-Id ]
+                [ IP-CAN-Type ]
+                [ RAT-Type ]
+             0*2[ AN-GW-Address ]
+                [ 3GPP-SGSN-MCC-MNC ]
+                [ 3GPP-SGSN-Address ]
+                [ 3GPP-SGSN-IPv6-Address ]
+                [ RAI ]
+                [ 3GPP-User-Location-Info ]
+                [ 3GPP-MS-TimeZone ]
+               *[ Charging-Rule-Report]
+                [ Error-Message ]
+                [ Error-Reporting-Host ] 
+               *[ Failed-AVP ]
+               *[ Proxy-Info ]
+               *[ AVP ]
+
+; Gx specific
+@enum Bearer-Usage
+  GENERAL 0
+  IMS_SIGNALLING 1
+
+@enum Event-Trigger
+  SGSN_CHANGE 0
+  QOS_CHANGE 1
+  RAT_CHANGE 2
+  TFT_CHANGE 3
+  PLMN_CHANGE 4
+  LOSS_OF_BEARER 5
+  RECOVERY_OF_BEARER 6
+  IP-CAN_CHANGE 7
+  QOS_CHANGE_EXCEEDING_AUTHORIZATION 11
+  RAI_CHANGE 12
+  USER_LOCATION_CHANGE 13
+  NO_EVENT_TRIGGERS 14
+  OUT_OF_CREDIT 15
+  REALLOCATION_OF_CREDIT 16
+  REVALIDATION_TIMEOUT 17
+  UE_IP_ADDRESS_ALLOCATE 18
+  UE_IP_ADDRESS_RELEASE 19
+  DEFAULT_EPS_BEARER_QOS_CHANGE 20
+  AN_GW_CHANGE 21
+  SUCCESSFUL_RESOURCE_ALLOCATION 22
+  RESOURCE_MODIFICATION_REQUEST 23
+  PGW_TRACE_CONTROL 24
+  UE_TIME_ZONE_CHANGE 25
+  TAI_CHANGE 26
+  ECGI_CHANGE 27
+  CHARGING_CORRELATION_EXCHANGE 28
+  APN-AMBR_MODIFICATION_FAILURE 29
+  USER_CSG_INFORMATION_CHANGE 30
+  USAGE_REPORT 33
+  DEFAULT-EPS-BEARER-QOS_MODIFICATION_FAILURE 34
+  USER_CSG_HYBRID_SUBSCRIBED_INFORMATION_CHANGE 35
+  USER_CSG_ HYBRID_UNSUBSCRIBED_INFORMATION_CHANGE 36
+  ROUTING_RULE_CHANGE 37
+
+@enum Metering-Method
+  DURATION 0
+  VOLUME 1
+  DURATION_VOLUME 2
+
+@enum Offline
+  DISABLE_OFFLINE 0
+  ENABLE_OFFLINE 1
+
+@enum Online
+  DISABLE_ONLINE 0
+  ENABLE_ONLINE 1
+
+@enum Reporting-Level
+  SERVICE_IDENTIFIER_LEVEL 0
+  RATING_GROUP_LEVEL 1
+  SPONSORED_CONNECTIVITY_LEVEL 2
+
+@enum QoS-Class-Identifier
+  QCI_1 1
+  QCI_2 2
+  QCI_3 3
+  QCI_4 4
+  QCI_5 5
+  QCI_6 6
+  QCI_7 7
+  QCI_8 8
+  QCI_9 9
+
+@enum PCC-Rule-Status
+  ACTIVE 0
+  INACTIVE 1
+  TEMPORARILY INACTIVE 2
+
+@enum Bearer-Operation
+  TERMINATION 0
+  ESTABLISHMENT 1
+  MODIFICATION 2
+
+@enum Bearer-Control-Mode
+  UE_ONLY 0
+  RESERVED 1
+  UE_NW 2
+
+@enum Network-Request-Support
+  NETWORK_REQUEST NOT SUPPORTED 0
+  NETWORK_REQUEST SUPPORTED 1
+
+@enum IP-CAN-Type
+  3GPP-GPRS 0
+  DOCSIS 1
+  xDSL 2
+  WiMAX 3
+  3GPP2 4
+  3GPP-EPS 5
+  Non-3GPP-EPS 6
+
+@enum QoS-Negotiation
+  NO_QoS_NEGOTIATION 0
+  QoS_NEGOTIATION_SUPPORTED 1
+
+@enum QoS-Upgrade
+  QoS_UPGRADE_NOT_SUPPORTED 0
+  QoS_UPGRADE_SUPPORTED 1
+
+@enum RAT-Type
+  WLAN 0
+  VIRTUAL 1
+  UTRAN 1000
+  GERAN 1001
+  GAN 1002
+  HSPA_EVOLUTION 1003
+  EUTRAN 1004
+  CDMA2000_1X 2000
+  HRPD 2001
+  UMB 2002
+  EHRPD 2003
+
+@enum Rule-Failure-Code
+  UNKNOWN_RULE_NAME 1
+  RATING_GROUP_ERROR 2
+  SERVICE_IDENTIFIER_ERROR 3
+  GW/PCEF_MALFUNCTION 4
+  RESOURCES_LIMITATION 5
+  MAX_NR_BEARERS_REACHED 6
+  UNKNOWN_BEARER_ID 7
+  MISSING_BEARER_ID 8
+  MISSING_FLOW_INFORMATION 9
+  RESOURCE_ALLOCATION_FAILURE 10
+  UNSUCCESSFUL_QOS_VALIDATION 11
+  INCORRECT_FLOW_INFORMATION 12
+  PS_TO_CS_HANDOVER 13
+  NO_BEARER_BOUND 15
+
+@enum Session-Release-Cause
+  UNSPECIFIED_REASON 0
+  UE_SUBSCRIPTION_REASON 1
+  INSUFFICIENT_SERVER_RESOURCES 2
+
+@enum Pre-emption-Capability
+  PRE-EMPTION_CAPABILITY_ENABLED 0
+  PRE-EMPTION_CAPABILITY_DISABLED 1
+
+@enum Pre-emption-Vulnerability
+  PRE-EMPTION_VULNERABILITY_ENABLED 0
+  PRE-EMPTION_VULNERABILITY_DISABLED 1
+
+@enum Resource-Allocation-Notification
+  ENABLE_NOTIFICATION 0
+
+@enum Packet-Filter-Operation
+  DELETION 0
+  ADDITION 1
+  MODIFICATION 2
+
+@enum Usage-Monitoring-Level
+  SESSION_LEVEL 0
+  PCC_RULE_LEVEL 1
+
+@enum Usage-Monitoring-Report
+  USAGE_MONITORING_REPORT_REQUIRED 0
+
+@enum Usage-Monitoring-Support
+  USAGE_MONITORING_DISABLED 0
+
+@enum CSG-Information-Reporting
+  CHANGE_CSG_CELL 0
+  CHANGE_CSG_SUBSCRIBED_HYBRID_CELL 1
+  CHANGE_CSG_UNSUBSCRIBED_HYBRID_CELL 2
+
+@enum Flow-Direction
+  UNSPECIFIED 0
+  DOWNLINK 1
+  UPLINK 2
+  BIDIRECTIONAL 3
+
+@enum Packet-Filter-Usage
+  SEND_TO_UE 1
+
+@enum Charging-Correlation-Indicator
+  CHARGING_IDENTIFIER_REQUIRED 0
+
+; Gx re-used
+@enum CC-Request-Type
+  INITIAL_REQUEST                 1
+  UPDATE_REQUEST                  2
+  TERMINATION_REQUEST             3
+  EVENT_REQUEST                   4
+
+@enum Flow-Status
+  ENABLED-UPLINK 0
+  ENABLED-DOWNLINK 1
+  ENABLED 2
+  DISABLED 3
+  REMOVED 4
+
+@enum AF-Signalling-Protocol
+  NO_INFORMATION 0
+  SIP 1
+
+; IETF RFC 4006
+@enum Final-Unit-Action
+  TERMINATE                       0
+  REDIRECT                        1
+  RESTRICT_ACCESS                 2
+
+@enum Subscription-Id-Type
+  END_USER_E164                   0
+  END_USER_IMSI                   1
+  END_USER_SIP_URI                2
+  END_USER_NAI                    3
+  END_USER_PRIVATE                4

@@ -1,0 +1,35 @@
+#!/bin/bash
+DIR=$(dirname $0)
+EBIN=../ebin
+NODE=my-pcrf@$(hostname)
+
+start() {
+  erl -pa $DIR/$EBIN -name my-pcrf -setcookie my -detached -s server start
+}
+
+stop() {
+  erl -name my-pcrf-ctrl -setcookie my -eval "io:write(rpc:call('$NODE', init, stop, [])), io:nl()." -s init stop -noshell
+}
+
+status() {
+  erl -name my-pcrf-ctrl -setcookie my -eval "io:write(rpc:call('$NODE', diameter, service_info, ['my-pcrf', transport])), io:nl()." -s init stop -noshell
+}
+
+case "$1" in
+start)
+  start
+;;
+stop)
+  stop
+;;
+status)
+  status
+;;
+restart)
+  stop
+  start
+;;
+*)
+  echo "$0 {start|stop|restart|status}"
+  exit 1
+esac

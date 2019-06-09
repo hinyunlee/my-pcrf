@@ -1,0 +1,4 @@
+-define(ODBC_DSN, "my-pcrf").
+-define(INTERFACE_NAME, "eth0").
+-define(ORIGIN_HOST, "192.168.1.1").
+-define(ORIGIN_REALM, "example.com").
